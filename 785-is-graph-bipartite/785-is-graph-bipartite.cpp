@@ -1,6 +1,6 @@
 // 0 -> uncoloured
-// 1 - > red
-// -1 -> blue
+// 1 - > red color
+// -1 -> blue color
 class Solution {
 public:
     bool isBipartite(vector<vector<int>>& graph) {
