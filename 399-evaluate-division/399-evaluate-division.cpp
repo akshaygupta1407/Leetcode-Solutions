@@ -18,11 +18,11 @@ public:
         queue<string>q;
         q.push(src);
         unordered_map<string,bool>visited;
-        unordered_map<string,string>parent;
+        // unordered_map<string,string>parent;
         unordered_map<string,double>dist;
         visited[src] = true;
         dist[src] = 1;
-        parent[src] = 1;
+        // parent[src] = 1;
         while(!q.empty())
         {
             string node = q.front();
@@ -34,7 +34,7 @@ public:
                     q.push(children.first);
                     visited[children.first] = true;
                     dist[children.first] = dist[node]*(children.second);
-                    parent[children.first] = node;
+                    // parent[children.first] = node;
                 }
             }
         }
