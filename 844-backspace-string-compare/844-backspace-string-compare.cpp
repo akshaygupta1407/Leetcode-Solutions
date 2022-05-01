@@ -39,7 +39,6 @@ public:
             s1.pop();
             t+=c;
         }
-        cout<<s<<" "<<t<<endl;
         return s==t;
     }
 };
