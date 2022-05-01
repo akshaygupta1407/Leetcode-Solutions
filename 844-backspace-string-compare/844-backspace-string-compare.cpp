@@ -1,44 +1,33 @@
 class Solution {
 public:
     bool backspaceCompare(string s, string t) {
-        stack<char>s1;
-        for(auto x : s)
+        string res1 = "",res2="";
+        int i = 0;
+        while(s[i]!='\0')
         {
-            if(x=='#' && !s1.empty())
+            if(s[i]>='a' && s[i]<='z')
             {
-                s1.pop();
+                res1+=s[i];
             }
-            else if(x!='#')
+            else if(!res1.empty())
             {
-                s1.push(x);
+                res1.pop_back();
             }
+            i++;
         }
-        s = "";
-        while(!s1.empty())
+        i = 0;
+        while(t[i]!='\0')
         {
-            char c = s1.top();
-            s1.pop();
-            s+=c;
-        }
-        s1.empty();
-        for(auto x : t)
-        {
-            if(x=='#' && !s1.empty())
+            if(t[i]>='a' && t[i]<='z')
             {
-                s1.pop();
+                res2+=t[i];
             }
-            else if(x!='#')
+            else if(!res2.empty())
             {
-                s1.push(x);
+                res2.pop_back();
             }
+            i++;
         }
-        t = "";
-        while(!s1.empty())
-        {
-            char c = s1.top();
-            s1.pop();
-            t+=c;
-        }
-        return s==t;
+        return res1==res2;
     }
 };
