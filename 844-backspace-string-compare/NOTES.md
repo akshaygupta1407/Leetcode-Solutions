@@ -1,3 +1,4 @@
+**M1 using stack**
 ```
 class Solution {
 public:
@@ -21,7 +22,6 @@ char c = s1.top();
 s1.pop();
 s+=c;
 }
-s1.empty();
 for(auto x : t)
 {
 if(x=='#' && !s1.empty())
@@ -37,3 +37,10 @@ t = "";
 while(!s1.empty())
 {
 char c = s1.top();
+s1.pop();
+t+=c;
+}
+return s==t;
+}
+};
+```
