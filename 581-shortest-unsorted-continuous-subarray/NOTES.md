@@ -1,38 +1,31 @@
-[1,3,2,2,2]
-index1 = 2
-​
-​
-​
 class Solution {
 public:
 int findUnsortedSubarray(vector<int>& nums) {
-int index1 = 0, index2 = 0;
-for(int i=0;i<nums.size()-1;i++)
+int start = 0, end = -1;
+int mn = nums[0];
+for(int i=1;i<nums.size();i++)
 {
-if(nums[i]>nums[i+1])
+if(mn>nums[i])
 {
-index1 = i+1;
-break;
+end = i;
+}
+else
+{
+mn = nums[i];
 }
 }
-for(int i = nums.size()-1;i>0;i--)
+int mx = nums[nums.size()-1];
+for(int i=nums.size()-2;i>=0;i--)
 {
-if(nums[i]<nums[i-1])
+if(mx<nums[i])
 {
-index2 = i + 1;
-break;
+start = i;
+}
+else
+{
+mx = nums[i];
 }
 }
-if(index2>index1)
-return index2 - index1 + 1;
-return 0;
+return end - start + 1;
 }
 };
-// 2 4 6 8 10 9 15
-//  [2,6,4,8,10,9,15]
-//  i = 2
-//     j = 6        j - i + 1
-//      2 4 6 8 10 9 15
-//      i = 5   j = 6
-// [1,3,2,2,2]
-​
