@@ -5,7 +5,7 @@ public:
         int count = 0;
         for(int i=0;i<nums.size();i++)
         {
-            int p = k - nums[i];        // 2
+            int p = k - nums[i];        
             if(m.find(p)!=m.end())
             {
                 m[p]--;
@@ -21,11 +21,3 @@ public:
         return count;
     }
 };
-    
-// [1,2,3,4]
-
-// m
-// key value
-// 1   1
-// 2   0
-    
