@@ -19,10 +19,7 @@ public:
 class Solution {
 public:
     Node* connect(Node* root) {
-        if(!root)
-        {
-            return NULL;
-        }
+        if(root==NULL)  return NULL;
         queue<Node*>q;
         q.push(root);
         while(!q.empty())
