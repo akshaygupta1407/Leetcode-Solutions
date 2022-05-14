@@ -12,9 +12,8 @@ public:
         }
         vector<int>dist(n+1,INT_MAX);
         dist[k] = 0;
-        int start = k;
         queue<int>q;
-        q.push(start);
+        q.push(k);
         while(!q.empty())
         {
             int node = q.front();
