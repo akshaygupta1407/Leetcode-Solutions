@@ -10,21 +10,16 @@ public:
         {
             addedge(x[0],x[1],x[2]);
         }
-        // vector<bool>visited(n+1,false);
-        // unordered_map<int,int>dist;
         vector<int>dist(n+1,INT_MAX);
         dist[k] = 0;
-        int ans = 0;
         int start = k;
         queue<int>q;
-        // visited[start] = true;
         q.push(start);
         dist[start] = 0;
         while(!q.empty())
         {
             int node = q.front();
             q.pop();
-            // if(!visited[node])
             for(auto children : h[node])
             {
                 int time = children.second;
@@ -35,15 +30,7 @@ public:
                     q.push(neighbournode);
                     dist[neighbournode] = arrivaltime;
                 }
-                // visited[node] = true;
-                // if(true)
-                // {
-                    // // visited[children.first] = true;
-                    // q.push(children.first);
-                    // dist[children.first] = dist[node] + children.second;
-               // }
             }
-            // visited[node] = true;
         }
         int mx = 0;
         for(int i=1;i<=n;i++)
