@@ -15,7 +15,6 @@ public:
         int start = k;
         queue<int>q;
         q.push(start);
-        dist[start] = 0;
         while(!q.empty())
         {
             int node = q.front();
@@ -38,7 +37,6 @@ public:
             mx = max(mx,dist[i]);
             if(dist[i]==INT_MAX && i!=k)
                 return -1;
-            cout<<i<<" "<<dist[i]<<endl;
         }
         return mx;
     }
