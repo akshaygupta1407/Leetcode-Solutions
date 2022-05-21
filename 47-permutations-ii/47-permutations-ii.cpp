@@ -1,10 +1,11 @@
 class Solution {
 public:
-    void backtrack(vector<int>& nums, set<vector<int>>&s, vector<bool>&visited,vector<int>&sub)
+    void backtrack(vector<int>& nums,set<vector<int>>&s,vector<bool>&visited,vector<int>&sub)
     {
         if(sub.size()==nums.size())
         {
             s.insert(sub);
+            return;
         }
         for(int i=0;i<nums.size();i++)
         {
@@ -20,10 +21,10 @@ public:
     }
     vector<vector<int>> permuteUnique(vector<int>& nums) {
         vector<vector<int>>res;
+        vector<bool>visited(nums.size(),false);
         set<vector<int>>s;
-        vector<bool>v(nums.size(),false);
         vector<int>sub;
-        backtrack(nums,s,v,sub);
+        backtrack(nums,s,visited,sub);
         for(auto x : s)
         {
             res.push_back(x);
