@@ -10,13 +10,17 @@ public:
         
         if(dp[zero][one][index]>0)
             return dp[zero][one][index];
+        
         for(auto x : strs[index])
         {
             if(x=='0')  countzero++;
             else countone++;
         }
+        
         int consider = (zero>=countzero && one>=countone) ? 1 + helper(strs,zero-countzero,one-countone,index+1) : 0;
+        
         int skip = helper(strs,zero,one,index+1);
+        
         return dp[zero][one][index] = max(consider,skip);
             
     }
