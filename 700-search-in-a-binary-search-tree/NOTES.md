@@ -1,16 +1,36 @@
-**M1**
+{
+return it;
+}
+if(it->left!=NULL)
+{
+q.push(it->left);
+}
+if(it->right!=NULL)
+{
+q.push(it->right);
+}
+}
+return NULL;
+}
+};
 ```
-/**
-* Definition for a binary tree node.
-* struct TreeNode {
-*     int val;
-*     TreeNode *left;
-*     TreeNode *right;
-*     TreeNode() : val(0), left(nullptr), right(nullptr) {}
-*     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-*     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-* };
-*/
+**M2**
+```
+class Solution {
+public:
+TreeNode* searchBST(TreeNode* root, int val) {
+TreeNode *node = root;
+while(node!=NULL && node->val!=val)
+{
+node = (node->val > val) ? node->left : node->right;
+}
+return node;
+}
+};
+```
+​
+**M3**
+```
 class Solution {
 public:
 TreeNode* searchBST(TreeNode* root, int val) {
@@ -19,12 +39,3 @@ q.push(root);
 while(!q.empty())
 {
 TreeNode* it = q.front();
-q.pop();
-if(it->val==val)
-{
-return it;
-}
-if(it->left!=NULL)
-{
-q.push(it->left);
-}
