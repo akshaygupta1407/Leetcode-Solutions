@@ -17,11 +17,11 @@ public:
     {
         if(root==NULL || m<=0)  return;
         dfs(root->left);
-        if(m>0)
+        if(m==1)
         {
-            ans = max(ans,root->val);
-            m--;
+            ans = root->val;
         }
+        m--;
         dfs(root->right);
     }
     int kthSmallest(TreeNode* root, int k) {
