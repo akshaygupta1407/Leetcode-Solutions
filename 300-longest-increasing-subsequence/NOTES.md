@@ -1,26 +1,20 @@
 ```
 class Solution {
 public:
-int dfs(vector<int>&nums,int n)
-{
-int lis[n];
-lis[0] = 1;
-for(int i=1;i<n;i++)
-{
-lis[i] = 1;
-for(int j=0;j<i;j++)
-{
-if(nums[i]>nums[j] && lis[i]<lis[j]+1)
-{
-lis[i] = lis[j] + 1;
-}
-}
-}
-return *max_element(lis,lis+n);
-}
 int lengthOfLIS(vector<int>& nums) {
 int n = nums.size();
-return dfs(nums,n);
+vector<int>dp(n,1);
+for(int i=1;i<n;i++)
+{
+for(int j=0;j<i;j++)
+{
+if(nums[i]>nums[j])
+{
+dp[i] = max(dp[i],dp[j]+1);
+}
+}
+}
+return *max_element(dp.begin(),dp.end());
 }
 };
 ```
