@@ -1,3 +1,4 @@
+**M1**
 ```
 class Solution {
 public:
@@ -11,4 +12,8 @@ n = n>>1;
 return count;
 }
 };
+```
+**M2 -> More optimized**
+```
+​
 ```
