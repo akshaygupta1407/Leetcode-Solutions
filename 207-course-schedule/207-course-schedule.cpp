@@ -1,5 +1,10 @@
 class Solution {
 public:
+    /*
+    0->unvisited
+    1-> processed
+    2->processing
+    */
     bool cycle(unordered_map<int,list<int>>&h,vector<int>&visited,int src)
     {
         if(visited[src]==2)
