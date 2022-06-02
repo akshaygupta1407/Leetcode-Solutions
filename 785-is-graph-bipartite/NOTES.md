@@ -2,9 +2,9 @@
 ​
 M1
 ```
-// 0 -> uncoloured
-// 1 - > red color
-// -1 -> blue color
+// 0 -> uncolored
+// 1 -> red
+// -1 ->blue
 class Solution {
 public:
 bool isBipartite(vector<vector<int>>& graph) {
@@ -24,10 +24,13 @@ q.pop();
 for(int x : graph[node])
 {
 if(color[x]==color[node])
+{
 return false;
-else if(color[x]==0){
-color[x]= -color[node];
+}
+else if(color[x]==0)
+{
 q.push(x);
+color[x] = -color[node];
 }
 }
 }
