@@ -13,7 +13,6 @@ public:
             return false;
         else if(grid1[i][j]==1 && grid2[i][j]==0)
         {
-            grid1[i][j] = 0;
             return true;
         }
         bool a = possible(grid1,grid2,i+1,j,m,n);
@@ -34,7 +33,6 @@ public:
                     if(possible(grid1,grid2,i,j,m,n))
                     {
                         count++;
-                        // cout<<i<<" "<<j<<endl;
                     }
                 }
             }
