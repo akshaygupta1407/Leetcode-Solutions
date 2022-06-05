@@ -2,7 +2,7 @@ class Solution {
 public:
     bool possible(vector<vector<int>>& grid1, vector<vector<int>>& grid2,int i,int j,int m,int n)
     {
-        if(i<0 || j<0 || i>=m || j>=n || (grid1[i][j]==0 && grid2[i][j]==0))
+        if(i<0 || j<0 || i>=m || j>=n || (grid1[i][j]==0 && grid2[i][j]==0) || (grid1[i][j]==1 && grid2[i][j]==0))
             return true;
         if(grid1[i][j]==1 && grid2[i][j]==1)
         {
@@ -11,10 +11,6 @@ public:
         }
         else if(grid1[i][j]==0 && grid2[i][j]==1)
             return false;
-        else if(grid1[i][j]==1 && grid2[i][j]==0)
-        {
-            return true;
-        }
         bool a = possible(grid1,grid2,i+1,j,m,n);
         bool b = possible(grid1,grid2,i,j+1,m,n);
         bool c = possible(grid1,grid2,i,j-1,m,n);
