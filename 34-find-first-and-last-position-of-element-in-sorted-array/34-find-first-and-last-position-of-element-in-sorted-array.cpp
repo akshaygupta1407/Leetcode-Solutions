@@ -18,6 +18,8 @@ public:
             else if(nums[mid]==target)
             {
                 index1 = mid;
+                if((mid-1 >= 0) && nums[mid-1]!=target)
+                    break;
                 e = mid-1;
             }
         }
@@ -36,6 +38,8 @@ public:
             else if(nums[mid]==target)
             {
                 index2 = mid;
+                if((mid+1 < n) && nums[mid+1]!=target)
+                    break;
                 s = mid+1;
             }
         }
