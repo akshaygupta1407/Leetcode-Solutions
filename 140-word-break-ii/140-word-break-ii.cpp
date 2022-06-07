@@ -7,6 +7,7 @@ public:
         {
             curr.pop_back();
             res.push_back(curr);
+            return;
         }
         string str = "";
         for(int i=index;i<s.length();i++)
