@@ -11,7 +11,6 @@
  */
 class Solution {
 public:
-    vector<string>res;
     int sum = 0;
     void dfs(TreeNode *root,string curr)
     {
@@ -21,12 +20,9 @@ public:
         {
             char ch = root->val + '0';
             curr+=ch;
-            // res.push_back(curr);
             sum+=stoi(curr);
             return;
         }
-        // int val = root->val;
-        // curr.push_back(val+'0');
         char ch = root->val + '0';
         dfs(root->left,curr + ch);
         dfs(root->right,curr + ch);
@@ -34,10 +30,6 @@ public:
     }
     int sumNumbers(TreeNode* root) {
         dfs(root,"");
-        // for(auto x : res)
-        // {
-        //     cout<<x<<endl;
-        // }
         return sum;
     }
 };
