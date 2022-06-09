@@ -31,15 +31,6 @@ class Solution
                 i++;
             }
         }
-        // while(sum!=s && j<n)
-        // {
-        //     sum-=arr[j];
-        //     j++;
-        // }
-        if(sum==s)
-        {
-            return {j+1,i};
-        }
         return {-1};
     }
 };
