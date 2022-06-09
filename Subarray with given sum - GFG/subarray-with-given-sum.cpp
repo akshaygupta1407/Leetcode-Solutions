@@ -13,7 +13,7 @@ class Solution
         // Your code here
         int i=0,j=0;
         long long int sum = 0;
-        while(i<n && j<n)
+        while(i<n || j<n)
         {
             // sum+=arr[i];
             if(sum==s)
@@ -31,11 +31,11 @@ class Solution
                 i++;
             }
         }
-        while(sum!=s && j<n)
-        {
-            sum-=arr[j];
-            j++;
-        }
+        // while(sum!=s && j<n)
+        // {
+        //     sum-=arr[j];
+        //     j++;
+        // }
         if(sum==s)
         {
             return {j+1,i};
