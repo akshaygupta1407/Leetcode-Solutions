@@ -15,6 +15,32 @@ class Solution
     int peakElement(int arr[], int n)
     {
        // Your code here
+       int s = 0,e = n-1,mid=0;
+       while(s<=e)
+       {
+           mid = s + (e-s)/2;
+           if((mid==0 || arr[mid]>=arr[mid-1]) && (mid==n-1 || arr[mid]>=arr[mid+1]))
+           break;
+           if(mid>0 && arr[mid-1] > arr[mid])
+           {
+               e = mid-1;
+           }
+           else
+           {
+               s = mid+1;
+           }
+       }
+       return mid;
+    }
+    
+};
+/*
+class Solution
+{
+    public:
+    int peakElement(int arr[], int n)
+    {
+       // Your code here
        if(arr[0] > arr[1])
        return 0;
        if(arr[n-1] > arr[n-2])
@@ -27,6 +53,7 @@ class Solution
        return 0;
     }
 };
+*/
 
 // { Driver Code Starts.
 
