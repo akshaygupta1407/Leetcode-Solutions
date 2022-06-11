@@ -10,17 +10,17 @@ public:
         if(remaining==0) return nums.size();
         int i=0,j=0;
         int sum=0,len = 0;
-        for(j=0;j<nums.size();j++)
+        for(i=0;i<nums.size();i++)
         {
-            sum+=nums[j];
-            while(i<nums.size() && sum>remaining)
+            sum+=nums[i];
+            while(j<nums.size() && sum>remaining)
             {
-                sum-=nums[i];
-                i++;
+                sum-=nums[j];
+                j++;
             }
             if(sum==remaining)
             {
-                len = max(len,j-i+1);
+                len = max(len,i-j+1);
             }
         }
         if(len==0)
