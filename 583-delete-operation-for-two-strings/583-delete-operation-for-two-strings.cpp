@@ -16,7 +16,6 @@ public:
                         c = max(c,dp[i-1][k]);
                     }
                     dp[i][j] = dp[i][j] + c + 1;
-                    c = dp[i][j];
                    
                 }
                 else
