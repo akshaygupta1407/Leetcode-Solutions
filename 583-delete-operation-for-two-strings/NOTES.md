@@ -9,7 +9,7 @@ for(int i=1;i<=l1;i++)
 {
 for(int j=1;j<=l2;j++)
 {
-c = 0;
+dp[i][j] = max(dp[i-1][j-1],dp[i-1][j]);
 if(word1[i-1]==word2[j-1])
 {
 for(int k=1;k<j;k++)
@@ -17,7 +17,6 @@ for(int k=1;k<j;k++)
 c = max(c,dp[i-1][k]);
 }
 dp[i][j] = dp[i][j] + c + 1;
-c = dp[i][j];
 }
 else
 {
