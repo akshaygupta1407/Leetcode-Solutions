@@ -8,20 +8,27 @@ using namespace std;
 
 class Solution{
   public:
-    int minJumps(int A[], int n){
+    int minJumps(int arr[], int n){
         // Your code here
-        if(n<2)return 0;
-	 int level=0,currentMax=0,i=0,nextMax=0;
-
-	 while(currentMax-i+1>0){		//nodes count of current level>0
-		 level++;
-		 for(;i<=currentMax;i++){	//traverse current level , and update the max reach of next level
-			nextMax=max(nextMax,A[i]+i);
-			if(nextMax>=n-1)return level;   // if last element is in level+1,  then the min jump=level 
-		 }
-		 currentMax=nextMax;
-	 }
-	 return -1;
+        if(n<=1)
+        return 0;
+        if(arr[0]==0)   return -1;
+        int maxreach = arr[0],jump = 1,steps = arr[0];
+        for(int i=1;i<n;i++)
+        {
+            if(i==n-1)
+            return jump;
+            
+            maxreach = max(maxreach,i+arr[i]);
+            steps--;
+            if(steps==0)
+            {
+                jump++;
+                if(i>=maxreach) return -1;
+                steps = maxreach - i;
+            }
+        }
+        return -1;
     }
 };
 
