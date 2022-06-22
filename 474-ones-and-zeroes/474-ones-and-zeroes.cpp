@@ -1,28 +1,30 @@
 class Solution {
 public:
     int dp[101][101][601];
-    int helper(vector<string>& strs, int zero, int one, int index)
+    int helper(vector<string>& strs, int m, int n,int index)
     {
-        if(index>=strs.size() || (zero==0 && one==0))
+        if(index>=strs.size() || (m==0 && n==0))    //m->zeroes, n->ones
+        {
             return 0;
-        
-        int countzero = 0,countone = 0;
-        
-        if(dp[zero][one][index]>0)
-            return dp[zero][one][index];
-        
+        }
+        if(dp[m][n][index]>0)   return dp[m][n][index];
+        int zero=0,one = 0;
         for(auto x : strs[index])
         {
-            if(x=='0')  countzero++;
-            else countone++;
+            if(x=='0')zero++;
+            else one++;
         }
-        
-        int consider = (zero>=countzero && one>=countone) ? 1 + helper(strs,zero-countzero,one-countone,index+1) : 0;
-        
-        int skip = helper(strs,zero,one,index+1);
-        
-        return dp[zero][one][index] = max(consider,skip);
-            
+        int consider = 0,skip = 0;
+        if(m>=zero && n>=one)
+        {
+            consider = 1 + helper(strs,m-zero,n-one,index+1);
+        }
+        else
+        {
+            consider = 0;
+        }
+        skip = helper(strs,m,n,index+1);
+        return dp[m][n][index] = max(skip,consider);
     }
     int findMaxForm(vector<string>& strs, int m, int n) {
         return helper(strs,m,n,0);
