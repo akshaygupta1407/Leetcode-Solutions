@@ -25,6 +25,3 @@ public:
         return profit;
     }
 };
-/*
-[2,4,1]
-*/
