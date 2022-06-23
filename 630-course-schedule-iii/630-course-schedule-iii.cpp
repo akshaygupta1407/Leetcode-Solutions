@@ -52,7 +52,7 @@ public:
                 time+=courses[i][0];
                 q.push(courses[i][0]);
             } else {
-                if(!q.empty() && q.top() > courses[i][0]) {
+                if(!q.empty() && (q.top() > courses[i][0])) {
                     // current course is actually of 
                     //less duration and can be taken
                     int x = q.top();
