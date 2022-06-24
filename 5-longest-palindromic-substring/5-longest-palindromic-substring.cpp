@@ -1,6 +1,6 @@
 class Solution {
 public:
-    string extendfrommiddle(string s, int i, int j)
+    string extend(string s,int i,int j)
     {
         while(i>=0 && j<s.length() && s[i]==s[j])
         {
@@ -10,14 +10,22 @@ public:
         return s.substr(i+1,j-i-1);
     }
     string longestPalindrome(string s) {
-        int n = s.length();
+        int l = s.length();
+        if(l==1)
+            return s;
         string res = "";
-        for(int i=0;i<n;i++)
+        for(int i=0;i<l;i++)
         {
-            string s1 = extendfrommiddle(s,i,i);
-            string s2 = extendfrommiddle(s,i,i+1);
-            if(s1.length() > res.length())    res = s1;
-            if(s2.length() > res.length())    res = s2;
+            string s1 = extend(s,i,i);
+            string s2 = extend(s,i,i+1);
+            if(res.length() < s1.length())
+            {
+                res = s1;
+            }
+            if(res.length() < s2.length())
+            {
+                res = s2;
+            }
         }
         return res;
     }
