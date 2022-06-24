@@ -18,7 +18,6 @@ public:
             mx%=diff;
             sum = diff + mx;
             pq.push(mx);
-            
         }
         return true;
     }
