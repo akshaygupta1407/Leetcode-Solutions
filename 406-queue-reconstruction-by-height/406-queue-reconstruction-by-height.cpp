@@ -2,12 +2,13 @@ class Solution {
 public:
     static bool cmp(vector<int>&a,vector<int>&b)
     {
-        if(a[0]==b[0])  return a[1]<b[1];
-        return a[0]<b[0];
+        if(a[0]==b[0])
+            return a[1] < b[1];
+        return a[0] < b[0];
     }
     vector<vector<int>> reconstructQueue(vector<vector<int>>& people) {
-        int n = people.size();
         sort(people.begin(),people.end(),cmp);
+        int n = people.size();
         vector<vector<int>>ans(n,vector<int>(2,-1));
         for(int i=0;i<n;i++)
         {
@@ -21,9 +22,7 @@ public:
                     break;
                 }
                 else if(ans[j][0]==-1 || ans[j][0]>=people[i][0])
-                {
                     count--;
-                }
             }
         }
         return ans;
