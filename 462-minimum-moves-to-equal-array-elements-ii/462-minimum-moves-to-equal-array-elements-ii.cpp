@@ -17,3 +17,6 @@ public:
 // 1 0 7 8
 // take 9
 // 8 7 0 1
+/*
+After sorting,take the middle element (as it will give min steps from all the numbers) and count the diff .
+*/
