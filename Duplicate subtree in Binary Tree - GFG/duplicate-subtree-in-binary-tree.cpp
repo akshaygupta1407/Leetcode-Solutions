@@ -95,7 +95,7 @@ class Solution {
     unordered_map<string,int>m;
     string dfs(Node *root)
     {
-        if(root==NULL)  return "@";
+        if(root==NULL)  return "";
         if(!root->left && !root->right)
         {
             return to_string(root->data);
