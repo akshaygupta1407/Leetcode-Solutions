@@ -5,13 +5,12 @@ public:
         set<int>set;
         for(auto x : nums)
             set.insert(x);
-        int mx = 0, count = 1;
+        int mx = 1, count = 1;
         int prev = INT_MIN;
         for(auto x : set)
         {
             if((long)x-prev != 1)
             {
-                mx = max(mx,count);
                 prev = x;
                 count = 1;
             }
