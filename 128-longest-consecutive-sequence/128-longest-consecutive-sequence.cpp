@@ -9,7 +9,6 @@ public:
         int prev = INT_MIN;
         for(auto x : set)
         {
-            cout<<x<<" ";
             if((long)x-prev != 1)
             {
                 mx = max(mx,count);
@@ -23,8 +22,6 @@ public:
                 prev = x;
             }
         }
-        mx = max(mx,count);
-        cout<<endl;
         return mx;
     }
 };
