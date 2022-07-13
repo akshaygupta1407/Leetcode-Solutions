@@ -6,7 +6,6 @@ public:
         {
             pq.push(x);
         }
-        if(pq.top()==0) return 0;
         int cnt = 0;
         while(pq.top()!=0)
         {
