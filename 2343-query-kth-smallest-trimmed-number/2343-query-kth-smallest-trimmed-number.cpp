@@ -16,23 +16,11 @@ public:
                 // cout<<s<<endl;
                 m[i].insert(make_pair(s,j));
             }
-            // sort(m[i].begin(),m[i].end());
         }
-        // for(auto x : m)
-        // {
-        //     cout<<x.first<<"-->";
-        //     for(auto y : x.second)
-        //     {
-        //         cout<<"{"<<y.first<<","<<y.second<<"},";
-        //     }
-        //     cout<<endl;
-        // }
         for(auto z : queries)
         {
             int ans = 0;
             int a = z[0];
-            // ans = m[z[1]][a-1].second;
-            // res.push_back(ans);
             for(auto x : m[z[1]])
             {
                 ans = x.second;
