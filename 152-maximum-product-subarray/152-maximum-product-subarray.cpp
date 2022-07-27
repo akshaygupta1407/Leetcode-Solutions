@@ -2,13 +2,40 @@ class Solution {
 public:
     int maxProduct(vector<int>& nums) {
         int n = nums.size();
-        int l = 0,r = 0, res = nums[0];
+        vector<int>left(n),right(n);
+        int curr = 1;
         for(int i=0;i<n;i++)
         {
-            l = (l ? l : 1)*nums[i];
-            r = (r ? r : 1)*nums[n-i-1];
-            res = max(res,max(l,r));
+            if(nums[i]==0)
+            {
+                left[i] = 0;
+                curr = 1;
+            }
+            else
+            {
+                curr*=nums[i];
+                left[i] = curr;
+            }
         }
-        return res;
+        curr = 1;
+        for(int i = n-1;i>=0;i--)
+        {
+            if(nums[i]==0)
+            {
+                right[i] = 0;
+                curr = 1;
+            }
+            else
+            {
+                curr*=nums[i];
+                right[i] = curr;
+            }
+        }
+        int mx = INT_MIN;
+        for(int i=0;i<n;i++)
+        {
+            mx = max(mx,max(left[i],right[i]));
+        }
+        return mx;
     }
 };
