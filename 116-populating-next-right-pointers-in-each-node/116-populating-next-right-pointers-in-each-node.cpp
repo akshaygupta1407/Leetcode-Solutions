@@ -19,9 +19,8 @@ public:
 class Solution {
 public:
     Node* connect(Node* root) {
-        if(root==NULL)
-            return root;
-        queue<Node*>q;
+        if(root==NULL)  return NULL;
+        queue<Node *>q;
         q.push(root);
         while(!q.empty())
         {
@@ -29,14 +28,12 @@ public:
             Node *dummy = new Node(0);
             while(size--)
             {
-                auto x = q.front();
+                Node *node = q.front();
                 q.pop();
-                dummy->next = x;
+                dummy->next = node;
                 dummy = dummy->next;
-                if(x->left)
-                    q.push(x->left);
-                if(x->right)
-                    q.push(x->right);
+                if(node->left)  q.push(node->left);
+                if(node->right) q.push(node->right);
             }
         }
         return root;
