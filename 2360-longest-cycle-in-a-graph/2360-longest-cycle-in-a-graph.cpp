@@ -6,7 +6,6 @@ public:
         if(visited[src]==2)
         {
             mx = max(mx,count);
-            cout<<mx<<endl;
             return true;
         }
         visited[src] = 2;
@@ -15,11 +14,10 @@ public:
             if(visited[nbr]!=1)
             {
                 bool c = dfs(h,nbr,visited);
-                // count++;
                 if(c)
                 {
                     count++;
-                     mx = max(mx,count);
+                    mx = max(mx,count);
                     return true;
                 }
             }
