@@ -14,14 +14,15 @@ public:
     TreeNode *helper(vector<int>&nums,int l,int h)
     {
         if(l>h) return NULL;
-        int mid = (l+h)/2;
+        int mid  = (l+h)/2;
         TreeNode *node = new TreeNode(nums[mid]);
         node->left = helper(nums,l,mid-1);
         node->right = helper(nums,mid+1,h);
         return node;
     }
     TreeNode* sortedArrayToBST(vector<int>& nums) {
-        if(nums.size()==0)  return NULL;
-        return helper(nums,0,nums.size()-1);
+        int n = nums.size();
+        if(n==0)    return NULL;
+        return helper(nums,0,n-1);
     }
 };
