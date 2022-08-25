@@ -1,19 +1,15 @@
 class Solution {
 public:
     bool canConstruct(string ransomNote, string magazine) {
-        map<char,int>m;
+        map<char,int>mpp;
         for(auto x : magazine)
         {
-            m[x]++;
+            mpp[x]++;
         }
-        for(auto x : ransomNote)
+        for(int i=0;i<ransomNote.size();i++)
         {
-            if(m[x]>0)
-            {
-                m[x]--;
-            }
-            else
-                return false;
+            if(mpp[ransomNote[i]]<=0)   return false;
+            mpp[ransomNote[i]]--;
         }
         return true;
     }
