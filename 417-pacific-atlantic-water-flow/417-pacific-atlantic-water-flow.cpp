@@ -1,22 +1,21 @@
 class Solution {
 public:
-    int m,n;
-    void dfs(vector<vector<int>>& heights,int i,int j,vector<vector<bool>>&visited)
+    void dfs(vector<vector<int>>&heights,int i,int j,vector<vector<bool>>&visited)
     {
-        if(visited[i][j]==true)
+        if(i<0 || j<0 || i>=heights.size() || j>=heights[0].size() || visited[i][j]==true)
             return;
         visited[i][j] = true;
-        if(i+1<m && heights[i+1][j]>=heights[i][j])
+        if(i+1<heights.size() && heights[i+1][j]>=heights[i][j])
         {
             dfs(heights,i+1,j,visited);
+        }
+        if(j+1<heights[0].size() && heights[i][j+1]>=heights[i][j])
+        {
+            dfs(heights,i,j+1,visited);
         }
         if(i-1>=0 && heights[i-1][j]>=heights[i][j])
         {
             dfs(heights,i-1,j,visited);
-        }
-        if(j+1<n && heights[i][j+1]>=heights[i][j])
-        {
-            dfs(heights,i,j+1,visited);
         }
         if(j-1>=0 && heights[i][j-1]>=heights[i][j])
         {
@@ -24,10 +23,8 @@ public:
         }
     }
     vector<vector<int>> pacificAtlantic(vector<vector<int>>& heights) {
-        vector<vector<int>>ans;
-        m = heights.size(),n = heights[0].size();
-        if(heights.size()==0)
-            return ans;
+        vector<vector<int>>res;
+        int m = heights.size(),n = heights[0].size();
         vector<vector<bool>>pacific(m,vector<bool>(n,false)),atlantic(m,vector<bool>(n,false));
         for(int i=0;i<m;i++)
         {
@@ -43,12 +40,12 @@ public:
         {
             for(int j=0;j<n;j++)
             {
-                if(atlantic[i][j] && pacific[i][j])
+                if(pacific[i][j] && atlantic[i][j])
                 {
-                    ans.push_back({i,j});
+                    res.push_back({i,j});
                 }
             }
         }
-        return ans;
+        return res;
     }
 };
