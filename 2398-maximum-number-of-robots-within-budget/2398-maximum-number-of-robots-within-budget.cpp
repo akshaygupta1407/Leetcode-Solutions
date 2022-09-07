@@ -19,7 +19,7 @@ public:
             }
             long long x = dq.front();
             long long y = (long long)(abs(i-j)+1)*(j==0 ? runningCost[i] : runningCost[i] - runningCost[j-1]);
-            long long check = ((long long)x+(long long)y);;
+            long long check = ((long long)x+(long long)y);
             if(check <= budget)
             {
                 mx = max(mx,abs(i-j+1));
