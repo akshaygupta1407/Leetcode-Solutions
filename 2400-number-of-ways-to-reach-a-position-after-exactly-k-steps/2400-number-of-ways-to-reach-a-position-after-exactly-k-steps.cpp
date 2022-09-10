@@ -18,8 +18,8 @@ public:
         }
         int f = dfs(startPos+1,endPos,k-1);
         int b = dfs(startPos-1,endPos,k-1);
-        int ans = (f+b)%mod;
-        return dp[startPos+1000][k] =  ans;
+        // int ans = (f+b)%mod;
+        return dp[startPos+1000][k] =  (f+b)%mod;
     }
     int numberOfWays(int startPos, int endPos, int k) {
         if(abs(endPos-startPos)>k){
