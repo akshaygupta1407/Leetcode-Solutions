@@ -6,15 +6,18 @@ public:
         while(--n)
         {
             string curr = "";
+            int count = 1;
             for(int i=0;i<ans.size();i++)
             {
-                int count = 1;
-                while((i+1 < ans.size()) && ans[i]==ans[i+1])
+                if((i+1 < ans.size()) && ans[i]==ans[i+1])
                 {
                     count++;
-                    i++;
                 }
-                curr+=to_string(count) + ans[i];
+                else
+                {
+                    curr+=to_string(count) + ans[i];
+                    count = 1;
+                }
             }
             ans = curr;
         }
