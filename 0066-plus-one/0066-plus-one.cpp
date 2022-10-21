@@ -5,11 +5,18 @@ public:
         int n = digits.size();
         for(int i=n-1;i>=0;i--)
         {
-            int x = digits[i] + carry;
-            digits[i] = (x)%10;
-            carry = (x)/10;
+            if(digits[i]==9)
+            {
+                digits[i] = 0;
+            }
+            else
+            {
+                digits[i]+=1;
+                return digits;
+            }
         }
-        if(carry) digits.insert(digits.begin(),carry);
+        digits.push_back(0);
+        digits[0] = 1;
         return digits;
     }
 };
