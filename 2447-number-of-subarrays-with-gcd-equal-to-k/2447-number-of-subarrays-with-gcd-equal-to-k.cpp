@@ -10,6 +10,7 @@ public:
             {
                 curr = __gcd(curr,nums[j]);
                 if(curr==k) count++;
+                if(curr < k) break;
             }
         }
         return count;
