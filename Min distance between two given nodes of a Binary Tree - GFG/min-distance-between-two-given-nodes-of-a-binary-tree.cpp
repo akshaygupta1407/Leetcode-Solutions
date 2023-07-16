@@ -121,11 +121,6 @@ class Solution{
         unordered_map<Node *,Node *>parent;
         dfs(root,parent,NULL);
         helper(root,a);
-        // for(auto x : parent)
-        // {
-        //     if(x.second!=NULL)
-        //     cout<<x.first->data<<" "<<x.second->data<<endl;
-        // }
         unordered_map<Node*,bool>visited;
         queue<Node *>q;
         q.push(first);
@@ -136,12 +131,9 @@ class Solution{
             while(s--)
             {
                 auto tp = q.front();
-                //cout<<tp->data<<endl;
-                //cout<<parent[tp]->data<<endl;
                 q.pop();
                 visited[tp] = true;
                 if(tp->data==b) return ans;
-
                 if(!visited[tp->left] && tp->left!=NULL) q.push(tp->left);
                 if(!visited[tp->right] && tp->right!=NULL) q.push(tp->right);
                 if(!visited[parent[tp]] && parent[tp]!=NULL) q.push(parent[tp]);
